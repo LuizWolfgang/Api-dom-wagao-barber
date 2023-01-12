@@ -2,9 +2,13 @@ import path from 'node:path'
 import express from 'express';
 import mongoose from 'mongoose';
 import { router } from './routes';
+import { config } from "dotenv";
 
-mongoose.connect('mongodb://localhost:27017')
+config()
+
+mongoose.connect(process.env.MONGO_URL || "mongodb://localhost:27017")
   .then(() =>{
+
     const app = express();
     app.use(express.json())
     const port = 3002
