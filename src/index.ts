@@ -7,9 +7,17 @@ mongoose.connect('mongodb://localhost:27017')
   .then(() =>{
     const app = express();
     app.use(express.json())
-    const port = 3000
+    const port = 3002
 
-    app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')))
+    app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
+
+    app.use((req, res, next) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', '*');
+      res.setHeader('Access-Control-Allow-Headers', '*');
+
+      next();
+    })
 
     app.use(router);
 
