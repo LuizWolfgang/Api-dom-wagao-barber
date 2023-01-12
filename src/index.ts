@@ -11,7 +11,7 @@ mongoose.connect(process.env.MONGO_URL || "mongodb://localhost:27017")
 
     const app = express();
     app.use(express.json())
-    const port = 3002
+    const port = process.env.PORT || 3000;
 
     app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
 
