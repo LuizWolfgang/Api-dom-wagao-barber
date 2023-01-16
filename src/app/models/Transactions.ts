@@ -11,7 +11,7 @@ export const Transactions = model('Transactions', new Schema({
   },
   category: {
     type: String,
-    enum: ['WAGAO', 'ALISSON', 'BEBIDAS'],
+    enum: ['WAGAO', 'ALISSON', 'BEBIDAS', 'GASTOSBARBEARIA'],
     default: 'WAGAO'
   },
   createdAt: {
